@@ -3,6 +3,7 @@ from typing import Optional
 from pydantic import AliasChoices, BaseModel, Field, NonNegativeInt, PositiveInt, computed_field
 
 from configs.feature.hosted_service import HostedServiceConfig
+from typing import List
 
 
 class SecurityConfig(BaseModel):
@@ -133,7 +134,7 @@ class HttpConfig(BaseModel):
 
     @computed_field
     @property
-    def CONSOLE_CORS_ALLOW_ORIGINS(self) -> list[str]:
+    def CONSOLE_CORS_ALLOW_ORIGINS(self) -> List[str]:
         return self.inner_CONSOLE_CORS_ALLOW_ORIGINS.split(',')
 
     inner_WEB_API_CORS_ALLOW_ORIGINS: Optional[str] = Field(
@@ -144,7 +145,7 @@ class HttpConfig(BaseModel):
 
     @computed_field
     @property
-    def WEB_API_CORS_ALLOW_ORIGINS(self) -> list[str]:
+    def WEB_API_CORS_ALLOW_ORIGINS(self) -> List[str]:
         return self.inner_WEB_API_CORS_ALLOW_ORIGINS.split(',')
 
 

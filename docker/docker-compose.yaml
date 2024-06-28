@@ -1,3 +1,8 @@
+# Useful Command:
+# docker build . -t techainer-mooc-api:latest -f api/Dockerfile
+# docker build . -t techainer-mooc-web:latest -f web/Dockerfile
+# docker-compose -f docker/docker-compose.yaml up
+
 version: '3'
 services:
   # API service
@@ -402,8 +407,8 @@ services:
       # The DSN for Sentry error reporting. If not set, Sentry error reporting will be disabled.
       SENTRY_DSN: ''
     # uncomment to expose dify-web port to host
-    # ports:
-    #   - "3000:3000"
+    ports:
+      - "3000:3000"
 
   # The postgres database.
   db:
@@ -423,8 +428,8 @@ services:
       # if you use the following config, you need to uncomment the volumes configuration below at the end of the file.
       # - postgres:/var/lib/postgresql/data
     # uncomment to expose db(postgresql) port to host
-    # ports:
-    #   - "5432:5432"
+    ports:
+      - "5432:5432"
     healthcheck:
       test: [ "CMD", "pg_isready" ]
       interval: 1s
@@ -443,8 +448,8 @@ services:
     healthcheck:
       test: [ "CMD", "redis-cli", "ping" ]
     # uncomment to expose redis port to host
-    # ports:
-    #   - "6379:6379"
+    ports:
+      - "6379:6379"
 
   # The Weaviate vector store.
   weaviate:

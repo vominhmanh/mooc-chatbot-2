@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import Any, Optional, Dict
 
 from pydantic import BaseModel, Field, NonNegativeInt, PositiveInt, computed_field
 
@@ -120,7 +120,7 @@ class DatabaseConfig:
 
     @computed_field
     @property
-    def SQLALCHEMY_ENGINE_OPTIONS(self) -> dict[str, Any]:
+    def SQLALCHEMY_ENGINE_OPTIONS(self) -> Dict[str, Any]:
         return {
             'pool_size': self.SQLALCHEMY_POOL_SIZE,
             'max_overflow': self.SQLALCHEMY_MAX_OVERFLOW,
