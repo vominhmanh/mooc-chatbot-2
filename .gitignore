@@ -149,7 +149,7 @@ dmypy.json
 cython_debug/
 
 # volumes docker
-docker/volumes/*
+docker/volumes/
 
 # IDE - VSCode
 .vscode/*
