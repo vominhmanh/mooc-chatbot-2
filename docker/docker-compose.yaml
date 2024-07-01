@@ -7,7 +7,7 @@ version: '3'
 services:
   # API service
   api:
-    image: langgenius/dify-api:0.6.11
+    image: techainer-mooc-api:latest
     restart: always
     environment:
       # Startup mode, 'api' starts the API server.
@@ -218,8 +218,8 @@ services:
       # Mount the storage directory to the container, for storing user files.
       - ./volumes/app/storage:/app/api/storage
     # uncomment to expose dify-api port to host
-    # ports:
-    #   - "5001:5001"
+    ports:
+      - "5001:5001"
     networks:
       - ssrf_proxy_network
       - default
@@ -227,7 +227,7 @@ services:
   # worker service
   # The Celery worker for processing the queue.
   worker:
-    image: langgenius/dify-api:0.6.11
+    image: techainer-mooc-api:latest
     restart: always
     environment:
       CONSOLE_WEB_URL: ''
@@ -393,7 +393,7 @@ services:
 
   # Frontend web application.
   web:
-    image: langgenius/dify-web:0.6.11
+    image: techainer-mooc-web:latest
     restart: always
     environment:
       # The base URL of console application api server, refers to the Console base URL of WEB service if console domain is
@@ -579,7 +579,8 @@ services:
       - web
     ports:
       - "80:80"
-      #- "443:443"
+      - "3030:80"
+      # - "443:443"
 # notice: if you use windows-wsl2, postgres may not work properly due to the ntfs issue.you can use volumes to mount the data directory to the host.
 # volumes:
 #   postgres:
