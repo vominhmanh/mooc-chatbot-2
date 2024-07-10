@@ -19,9 +19,6 @@ import TooltipPlus from '@/app/components/base/tooltip-plus'
 import { ToastContext } from '@/app/components/base/toast'
 import useBreakpoints, { MediaType } from '@/hooks/use-breakpoints'
 import VoiceInput from '@/app/components/base/voice-input'
-import { Microphone01 } from '@/app/components/base/icons/src/vender/line/mediaAndDevices'
-import { Microphone01 as Microphone01Solid } from '@/app/components/base/icons/src/vender/solid/mediaAndDevices'
-import { XCircle } from '@/app/components/base/icons/src/vender/solid/general'
 import { Send03 } from '@/app/components/base/icons/src/vender/solid/communication'
 import ChatImageUploader from '@/app/components/base/image-uploader/chat-image-uploader'
 import ImageList from '@/app/components/base/image-uploader/image-list'
@@ -177,7 +174,7 @@ const ChatInput: FC<ChatInputProps> = ({
             autoSize
           />
           <div className='absolute bottom-[7px] right-2 flex items-center h-8'>
-            <div className='flex items-center px-1 h-5 rounded-md bg-gray-100 text-xs font-medium text-gray-500'>
+            {/* <div className='flex items-center px-1 h-5 rounded-md bg-gray-100 text-xs font-medium text-gray-500'>
               {query.trim().length}
             </div>
             {
@@ -198,7 +195,7 @@ const ChatInput: FC<ChatInputProps> = ({
                     </div>
                   )
                   : null
-            }
+            } */}
             <div className='mx-2 w-[1px] h-4 bg-black opacity-5' />
             {isMobile
               ? sendBtn
