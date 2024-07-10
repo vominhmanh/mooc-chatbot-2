@@ -4,11 +4,10 @@ import cn from 'classnames'
 import { useEmbeddedChatbotContext } from '../context'
 import Form from './form'
 import Button from '@/app/components/base/button'
-import AppIcon from '@/app/components/base/app-icon'
 import { MessageDotsCircle } from '@/app/components/base/icons/src/vender/solid/communication'
 import { Edit02 } from '@/app/components/base/icons/src/vender/line/general'
 import { Star06 } from '@/app/components/base/icons/src/vender/solid/shapes'
-import LogoSite from '@/app/components/base/logo/logo-site'
+import LogoChat from '@/app/components/base/logo/logo-chat'
 
 const ConfigPanel = () => {
   const { t } = useTranslation()
@@ -43,11 +42,7 @@ const ConfigPanel = () => {
             showConfigPanelBeforeChat && (
               <>
                 <div className='flex items-center h-8 text-2xl font-semibold text-gray-800'>
-                  <AppIcon
-                    icon={appData?.site.icon}
-                    background='transparent'
-                    size='small'
-                  />
+                  <LogoChat />
                   {appData?.site.title}
                 </div>
                 {
@@ -125,7 +120,8 @@ const ConfigPanel = () => {
                 onClick={handleStartChat}
               >
                 <MessageDotsCircle className='mr-2 w-4 h-4 text-white' />
-                {t('share.chat.startChat')}
+                {/* {t('share.chat.startChat')} */}
+                Bắt đầu chat
               </Button>
             </div>
           )
@@ -144,7 +140,7 @@ const ConfigPanel = () => {
               </div>
               : <div>
               </div>}
-            {
+            {/* {
               customConfig?.remove_webapp_brand
                 ? null
                 : (
@@ -159,7 +155,7 @@ const ConfigPanel = () => {
                     </div>
                   </div>
                 )
-            }
+            } */}
           </div>
         )
       }
